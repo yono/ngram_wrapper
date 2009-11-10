@@ -1,0 +1,29 @@
+## 事前にインストールが必要なモジュール
+1. ngram.py
+http://thomas.mangin.me.uk/data/source/ngram.py
+
+2. Lingua::LanguageGuesser
+http://gensen.dl.itc.u-tokyo.ac.jp/LanguageGuesser/hajimete_monogatari.html
+
+## インストール手順
+1. Lingua::LanguageGuesser の言語モデルがインストールされたパスを探す
+
+yono@orca% ls /opt/local/lib/perl5/site_perl/5.8.9/Lingua 
+LM/  LM_utf8/  <- この2つがあるディレクトリ
+
+例: CentOSの場合
+/usr/lib/perl5/site_perl/5.8.8/Lingua/ 
+
+Mac OS X(MacPorts) の場合
+/opt/local/lib/perl5/site_perl/5.8.9/Lingua/
+
+2. .ngramrc を開いて 1. で探したパスを書く
+
+[lingua]
+path=/opt/local/lib/perl5/site_perl/5.8.9/Lingua/
+
+3. .ngramrc をホームディレクトリへコピー
+% cp .ngramrc ~/
+
+4. ngram_wrapper をインストール
+% sudo python setup.py install
